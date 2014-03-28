@@ -1,3 +1,7 @@
+#	folder	#
+bin/
+.settings/
+
 *.class
 
 # Package Files #
