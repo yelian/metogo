@@ -1,8 +1,8 @@
 package download;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RemainDownloadObj implements Serializable{
 	
@@ -12,8 +12,18 @@ public class RemainDownloadObj implements Serializable{
 	private static final long serialVersionUID = 1998443232946710780L;
 	private String target_file = null;
 	private String local_file = null;
-	private List<EveryThreadToDownloadObj> list = new ArrayList<EveryThreadToDownloadObj>();
+	private Map<Integer, EveryThreadToDownloadObj> map = new HashMap<Integer,EveryThreadToDownloadObj>();
 	
+	public Map<Integer, EveryThreadToDownloadObj> getMap() {
+		return map;
+	}
+
+
+	public void setMap(Map<Integer, EveryThreadToDownloadObj> map) {
+		this.map = map;
+	}
+
+
 	public String getTarget_file() {
 		return target_file;
 	}
@@ -34,29 +44,20 @@ public class RemainDownloadObj implements Serializable{
 	}
 
 
-	public List<EveryThreadToDownloadObj> getList() {
-		return list;
-	}
-
-
-	public void setList(List<EveryThreadToDownloadObj> list) {
-		this.list = list;
-	}
-
-
 	class EveryThreadToDownloadObj implements Serializable{
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		private int currentPosition = 0;
+		private int startPosition = 0;
 		private int endPosition = 0;
 		private int currentThreadPosition = 0;
-		public int getCurrentPosition() {
-			return currentPosition;
+		private int totalDownloadSize = 0;
+		public int getStartPosition() {
+			return startPosition;
 		}
-		public void setCurrentPosition(int currentPosition) {
-			this.currentPosition = currentPosition;
+		public void setStartPosition(int startPosition) {
+			this.startPosition = startPosition;
 		}
 		public int getEndPosition() {
 			return endPosition;
@@ -72,7 +73,16 @@ public class RemainDownloadObj implements Serializable{
 		}
 		
 		public String toString(){
-			return "\tstart position: " + this.currentPosition + "\n\tend position: "+this.endPosition+"\n\t thread position: "+this.currentThreadPosition;
+			return "\tstart position: " + this.startPosition + 
+					"\n\tend position: "+this.endPosition+
+					"\n\t thread position: "+this.currentThreadPosition+
+					"\n\t thread total download size: "+this.totalDownloadSize;
+		}
+		public int getTotalDownloadSize() {
+			return totalDownloadSize;
+		}
+		public void setTotalDownloadSize(int totalDownloadSize) {
+			this.totalDownloadSize = totalDownloadSize;
 		}
 	}
 	
@@ -80,8 +90,8 @@ public class RemainDownloadObj implements Serializable{
 		StringBuilder msg = new StringBuilder();
 		msg.append("target file: "+this.target_file);
 		msg.append("\nlocal file: "+this.local_file);
-		for(EveryThreadToDownloadObj o:this.list){
-			msg.append(o.toString());
+		for(int o:this.map.keySet()){
+			msg.append("\n\t thread " + o + ": " + this.map.get(o).toString());
 		}
 		return msg.toString();
 	}

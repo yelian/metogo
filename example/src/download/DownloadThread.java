@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import java.net.MalformedURLException;
-import java.net.SocketException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import download.RemainDownloadObj.EveryThreadToDownloadObj;
 
 public class DownloadThread extends Thread{
 
@@ -35,6 +36,14 @@ public class DownloadThread extends Thread{
 			this.endPosition = (int) (total_file_size - 1);
 			this.current_download_size = (int) (this.total_file_size - ((int) (total_file_size / 4))*3);
 		}
+		Map<Integer,RemainDownloadObj.EveryThreadToDownloadObj> everyThreadToDownloadObjs = MultiDownload.REM_DOWNLOAD.getMap();
+		EveryThreadToDownloadObj everyThreadToDownloadObj = everyThreadToDownloadObjs.get(thread_position);
+		if(everyThreadToDownloadObj == null){
+			everyThreadToDownloadObj = MultiDownload.REM_DOWNLOAD.new EveryThreadToDownloadObj();
+		}
+		everyThreadToDownloadObj.setCurrentThreadPosition(this.startPosition);
+		everyThreadToDownloadObj.setStartPosition(this.startPosition);
+		everyThreadToDownloadObj.setEndPosition(this.endPosition);
 		System.out.println(toString());
 	}
 	public void run(){
@@ -77,15 +86,20 @@ public class DownloadThread extends Thread{
 					MultiDownload.map.put(this.position, map);
 					break;
 				}
+				//System.out.println(Thread.currentThread().getName()+": writed:" + writeCount+"\treadcount:"+readCount);
 				if(readCount>0){
 					if(readCount < toWriteCount){
 						raf.write(bytes, 0, readCount);
+						writeCount += readCount;
+						downloadProcessing(readCount);
+						System.out.println("remain: "+(toWriteCount-readCount));
 					} else {
 						raf.write(bytes, 0, toWriteCount);
+						writeCount += toWriteCount;
+						downloadProcessing(toWriteCount);
 						break;
 					}
 					toWriteCount -= readCount;
-					writeCount += readCount;
 				} else {
 					break;
 				}
@@ -96,6 +110,17 @@ public class DownloadThread extends Thread{
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public synchronized void downloadProcessing(int writeCount){
+		System.out.println(writeCount);
+		int ds = (int) MultiDownload.getDOWNLOAD_SIZE();
+		writeCount += ds;
+		MultiDownload.setDOWNLOAD_SIZE(writeCount);
+		if(MultiDownload.getFILE_SIZE() > 0){
+			double per = ((double)writeCount * 100 / (double)MultiDownload.getFILE_SIZE());
+			System.out.println(Thread.currentThread().getName() + " current download per : " + per + "%" + "\t downloaded: "+writeCount+"\t total:"+MultiDownload.getFILE_SIZE());
 		}
 	}
 	
