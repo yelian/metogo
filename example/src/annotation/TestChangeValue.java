@@ -25,9 +25,8 @@ public class TestChangeValue {
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map<Object,Object> simpleObject2Map(Object o){
-		Class clazz = o.getClass();
+		Class<?> clazz = o.getClass();
 		Field[] fields = clazz.getDeclaredFields();
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		for(Field field:fields){
@@ -48,8 +47,8 @@ public class TestChangeValue {
 			Method method = null;
 			Object v = null;
 			try {
-				method = clazz.getMethod(methodName, null);
-				v = method.invoke(o, null);
+				method = clazz.getMethod(methodName, new Class[]{});
+				v = method.invoke(o, new Object[]{});
 			} catch (SecurityException e) {
 				e.printStackTrace();
 			} catch (NoSuchMethodException e) {
