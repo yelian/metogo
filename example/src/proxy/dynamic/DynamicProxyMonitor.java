@@ -33,7 +33,7 @@ public class DynamicProxyMonitor{
 				if("monitor".equals(method.getName())){
 					long startTime = System.currentTimeMillis();
 					System.out.println(startTime);
-					Object o = DynamicProxyMonitor.clazz.getConstructor(null).newInstance(null);
+					Object o = DynamicProxyMonitor.clazz.getConstructor(new Class[]{}).newInstance();
 					method.invoke(o, args);
 					long endTime = System.currentTimeMillis();
 					System.out.println(endTime + "\ntime cost:" + (endTime-startTime));

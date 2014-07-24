@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -65,7 +64,6 @@ public class Object2wsXMLMarshaller {
 		m.marshal( element, os );*/
 	}
 
-	@SuppressWarnings("unused")
 	private static void unMarshalingExample(String path) throws JAXBException {
 	    JAXBContext jaxbContext = JAXBContext.newInstance(Customer.class);
 	    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();

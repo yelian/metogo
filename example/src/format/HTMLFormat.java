@@ -5,9 +5,9 @@ import java.util.List;
 
 public class HTMLFormat {
 
-	private static final char LEFT = '<';
+	/*private static final char LEFT = '<';
 	private static final char RIGHT = '<';
-	private static final char GLAPS = '/';
+	private static final char GLAPS = '/';*/
 	
 	String miniHTML = "";
 	boolean isInElement = true;
@@ -87,10 +87,6 @@ public class HTMLFormat {
 			out += "\t";
 		}
 		System.out.print(out);
-	}
-	
-	public void isStartElement(String miniHTML, int currPosition){
-		char currChar = miniHTML.charAt(currPosition);
 	}
 	
 	public static void main(String[] args) {
