@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customer id="100">
+    <age>29</age>
+    <hashMap>
+        <entry>
+            <key>second</key>
+            <value>2</value>
+        </entry>
+        <entry>
+            <key>first</key>
+            <value>1</value>
+        </entry>
+    </hashMap>
+    <hw/>
+    <name>mkyong</name>
+</customer>

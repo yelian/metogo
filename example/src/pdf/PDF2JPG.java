@@ -1,30 +1,52 @@
 package pdf;
 
-import java.awt.Image;  
-import java.awt.Rectangle;  
-import java.awt.image.BufferedImage;  
-import java.io.File;  
-import java.io.FileNotFoundException;  
-import java.io.FileOutputStream;  
-import java.io.IOException;  
-import java.io.RandomAccessFile;  
-import java.lang.reflect.Method;  
-import java.nio.MappedByteBuffer;  
-import java.nio.channels.FileChannel;  
-import java.security.AccessController;  
-import java.security.PrivilegedAction;  
-  
-import com.sun.image.codec.jpeg.JPEGCodec;  
-import com.sun.image.codec.jpeg.JPEGEncodeParam;  
-import com.sun.image.codec.jpeg.JPEGImageEncoder;  
-import com.sun.pdfview.PDFFile;  
-import com.sun.pdfview.PDFPage;  
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
+import com.sun.image.codec.jpeg.JPEGCodec;
+import com.sun.image.codec.jpeg.JPEGEncodeParam;
+import com.sun.image.codec.jpeg.JPEGImageEncoder;
   
 public class PDF2JPG {  
     public static void main(String[] args){  
-        PDF2JPG.changePdfToImg();  
+        //PDF2JPG.changePdfToImg();
+    	calc();
     }  
   
+    
+    public static void calc(){
+//    	int base = 0;
+//    	int mi = 8000;
+    	BigDecimal w = new BigDecimal(10000); 
+    	BigDecimal ic = new BigDecimal(1.2);
+    	BigDecimal base = new BigDecimal(0);
+    	BigDecimal mi = new BigDecimal(7500);
+    	for(int d=1; d<365; d++){
+    		if(d%30==0){
+    			base = base.add(mi);
+    			System.out.println("mouth " + d/30 + " : income is : " + base.longValue());
+    		}
+    		//BigDecimal b1 = new BigDecimal(base);
+    		base = base.add(base.divide(w).multiply(ic));
+    		//base = base + (base/10000)*1.2;
+    	}
+    	System.out.println("total income is : " + base.longValue());
+    	System.out.println("plain income is : " + 7500*12);
+    }
+    
+    
     private static void changePdfToImg() {  
   
         try {  

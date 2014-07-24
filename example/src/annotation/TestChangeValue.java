@@ -43,7 +43,7 @@ public class TestChangeValue {
 			if(c[0]>='a' && c[0]<='z'){
 				c[0] += 'A' - 'a';
 			}
-			String methodName = "get"+new String(c);
+			String methodName = "get"+String.valueOf(c);
 			Method method = null;
 			Object v = null;
 			try {
