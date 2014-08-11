@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>test</title>		
+		<script type="text/javascript">
+			function init(){
+				alert(eval("{}")); // return undefined
+				alert(eval("({})"));// return object[Object]
+			}
+		</script>				
+	</head>
+ 
+	<body onload="init();">
+		
+	</body>
+</html>
+
