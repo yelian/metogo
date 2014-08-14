@@ -3,15 +3,27 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>test</title>		
 		<script type="text/javascript">
+			var defineObj = {};
+			defineObj.field_a = "args_a";
+			defineObj.field_b = "args_b";
+			defineObj.fun = function(v){
+				alert((v == '' || v == undefined) ? "define a method" : v);
+			}
+			
 			function init(){
 				alert(eval("{}")); // return undefined
 				alert(eval("({})"));// return object[Object]
+				
+				var str = ""
+				for(var args in defineObj){
+					str += args + ":" + defineObj[args] + "\n";
+				}
+				defineObj.fun(str);
 			}
-		</script>				
+		</script>
 	</head>
  
 	<body onload="init();">
-		
 	</body>
 </html>
 

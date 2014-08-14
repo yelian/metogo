@@ -9,7 +9,7 @@ public class TestThreadLocal {
 	public static void main(String[] args) {
 		
 		//方式1：
-		//ThreadLocal<O> threadLocal = new ThreadLocal<O>();
+		ThreadLocal<O> threadLocal = new ThreadLocal<O>();
 		
 		/*
 		 * threadLocal设置线程变量的时候，只有通过ThreadLocal的匿名内部类覆盖initialValue方法。
@@ -17,12 +17,12 @@ public class TestThreadLocal {
 		 * */
 		
 		//方式2：
-		ThreadLocal<O> threadLocal = new ThreadLocal<O>(){
+		/*ThreadLocal<O> threadLocal = new ThreadLocal<O>(){
 			
 			public O initialValue(){
 				return new O();
 			}
-		};
+		};*/
 		O o = new O();
 		threadLocal.set(o);
 		map.put("main", threadLocal);
@@ -54,6 +54,8 @@ class ThreadChangeValue extends Thread{
 		System.out.println("--------------------thread start----------------------");
 		if(o == null){
 			System.out.println("i cannot get the value set main thread!");
+			o = new O();
+			threadLocal.set(o);
 		} else {
 			System.out.println(o.toString());
 			o.set_int((int)Thread.currentThread().getId());
