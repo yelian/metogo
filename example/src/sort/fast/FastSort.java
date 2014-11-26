@@ -2,8 +2,8 @@ package sort.fast;
 public class FastSort {
 	
 	//String[] toSortList = null;
-	//小到大
-	public static void sort(int[] toSortList, int start, int end){
+	//小锟斤拷锟斤拷
+	public static void sort_wrong(Integer[] toSortList, int start, int end){
 		int div = toSortList[start];
 		int target = start;
 		int startPosition = start;
@@ -48,6 +48,55 @@ public class FastSort {
 					System.out.println();
 				}
 				startPosition++;
+			}
+		}
+	}
+	
+	public static void sort(Integer[] toSortList, int startPos, int endPos){
+		
+		if(startPos == endPos){
+			return;
+		}
+		
+		boolean fromEndToStart = true;
+		int target = startPos;
+		int targetVal = toSortList[target];
+		int start = startPos;
+		int end = endPos;
+		
+		while(true){
+			if(start == end){
+				if(target == startPos){
+					//sort(toSortList, startPos, target);
+					sort(toSortList, startPos+1, endPos);
+				} else if (target == endPos){
+					sort(toSortList, startPos, endPos-1);
+					//sort(toSortList, target, endPos);
+				} else {
+					sort(toSortList, startPos, target-1);
+					sort(toSortList, target+1, endPos);
+				}
+				break;
+			}
+			if(fromEndToStart){
+				//System.out.println("endPosition:" + end);
+				if(toSortList[end] < targetVal){
+					toSortList[target] = toSortList[end];
+					toSortList[end] = targetVal;
+					target = end;
+					fromEndToStart = false;
+				} else {
+					end--;
+				}
+			} else {
+				if(toSortList[start] > targetVal){
+					toSortList[target] = toSortList[start];
+					toSortList[start] = targetVal;
+					target = start;
+					fromEndToStart = true;
+				} else {
+					start++;
+				}
 			}
 		}
 	}

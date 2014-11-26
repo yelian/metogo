@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>test</title>
+		<script type="text/javascript">
+			
+			function init(){
+				var obj = {'a':'  e ea ', 'b': {'e': ' at1            ', 'f': '             saad ', 'arr': [{'atrr':'  e'}, {'attr':'ewes        '}]}, 'i':123, 'boo': true}
+				//var obj = {'a:' : '2222222'};
+				var myArray = new Array();
+				_obj = {'arr': ' awd          '};
+				_obj1 = {'arr': '       d'};
+				myArray.push(_obj, _obj1);
+				obj['t'] = myArray;
+				var o = trim(obj);	
+				alert(o);
+				//trim()			
+			}
+			
+			function trim(obj){
+				for(attr in obj){					
+					var v = obj[attr];
+					var _type = typeof v;
+					if(_type == "object"){
+						out += trim(v);
+					} else if(_type == "string") {
+						obj[attr] = stringTrim(v);
+					}			
+				}
+			}			
+			
+			function stringTrim(str){
+				var s = 0;
+				var e = str.length-1;
+				var s_blank = true;
+				var e_blank = true;
+				for( ; s<=e; ){
+					if(s_blank){
+						if(" " == str.charAt(s)){
+							s++;
+						} else {
+							s_blank = false;
+						}
+					}
+					
+					if(e_blank){
+						if(" " == str.charAt(e)){
+							e--;
+						} else {
+							e_blank = false;
+						}
+					}
+					
+					if(!(s_blank || e_blank)){
+						break;
+					}				
+				}
+				
+				return str.substring(s, e+1);
+			}
+		</script>
+	</head>
+	<body onload="init();"></body>
+</html>
