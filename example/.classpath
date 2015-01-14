@@ -1,10 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
+	<classpathentry kind="src" path="WebCollector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/study/dataSource_Driver/oracle/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="lib/junit-4.1.jar"/>
 	<classpathentry kind="lib" path="lib/ehcache-1.2.3.jar"/>
-	<classpathentry kind="lib" path="lib/cglib-nodep-2.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jsoup-1.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/juniversalchardet-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-exec-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/commons-pool-1.5.4.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/cssparser-0.9.14.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/gson-2.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/htmlunit-2.15.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/htmlunit-core-js-2.15.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/httpclient-4.3.4.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/httpmime-4.3.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/je-5.0.73.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jetty-http-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jetty-io-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jetty-util-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jetty-websocket-8.1.15.v20140411.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/jna-3.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/json-20140107.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/mysql-connector-java-5.1.31.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/nekohtml-1.9.21.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/netty-3.5.2.Final.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/platform-3.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-api-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-chrome-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-firefox-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-htmlunit-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-ie-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-java-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-remote-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-safari-driver-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/selenium-support-2.44.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/serializer-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/slf4j-api-1.7.9.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/slf4j-log4j12-1.7.9.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/spring-beans-4.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/spring-core-4.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/spring-jdbc-4.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/spring-tx-4.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/webbit-0.4.14.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/webcollector/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/poi-libs"/>
+	<classpathentry kind="lib" path="lib/junit-4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
