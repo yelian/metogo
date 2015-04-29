@@ -245,7 +245,7 @@ public class ExcelUtil {
 			CellReference b2 = new CellReference("b2");
 			sheet.getRow(b2.getRow()).getCell(b2.getCol()).setCellValue(1);
 			
-			/*for(Row row: sheet){
+			for(Row row: sheet){
 				int cIndex = 0;
 				for(Cell cell: row){
 					if(cIndex == 2){
@@ -265,7 +265,7 @@ public class ExcelUtil {
 			
 			CellReference cellReference = new CellReference("C136"); 
 			Row row = sheet.getRow(cellReference.getRow());
-			Cell cell = row.getCell(cellReference.getCol()); */
+			Cell cell = row.getCell(cellReference.getCol()); 
 			CellValue cellValue = wb.getCreationHelper().createFormulaEvaluator().evaluate(cell);
 			switch (cellValue.getCellType()) {
 			    case Cell.CELL_TYPE_BOOLEAN:
